@@ -3,7 +3,7 @@ PNGEncryption
 
 This library encrypts and decrypts data on PNG Images and ported to C# and Java
 
-This contains an desmostration encodign EICAR string in both languages.
+This contains an demostration encodign EICAR string in both languages.
 
 VirusTotal Test of "eicar.png" in the currect link http://goo.gl/i12u4j
 
