@@ -1,0 +1,5 @@
+C:\Users\JhetoX\Documents\GitHub\PNGEncryption\C#\PNGEncryption\PNGEncryption\bin\Debug\PNGEncryption.exe
+C:\Users\JhetoX\Documents\GitHub\PNGEncryption\C#\PNGEncryption\PNGEncryption\bin\Debug\PNGEncryption.pdb
+C:\Users\JhetoX\Documents\GitHub\PNGEncryption\C#\PNGEncryption\PNGEncryption\obj\x86\Debug\PNGEncryption.exe
+C:\Users\JhetoX\Documents\GitHub\PNGEncryption\C#\PNGEncryption\PNGEncryption\obj\x86\Debug\PNGEncryption.pdb
+C:\Users\JhetoX\Documents\GitHub\PNGEncryption\C#\PNGEncryption\PNGEncryption\obj\x86\Debug\PNGEncryption.csprojResolveAssemblyReference.cache

@@ -1,0 +1,86 @@
+package com.jheto.pngencryption;
+
+import java.io.ByteArrayOutputStream;
+
+import android.graphics.Bitmap;
+import android.graphics.Color;
+
+public class PNGSerializer {
+
+	private PNGSerializer() { }
+	
+	public static byte[] encodeText(String message)
+    {
+        byte[] bytes = null;
+        try {
+        	bytes = message.getBytes("UTF-8");
+        } catch (Exception e) {
+            bytes = null;
+        }
+        return bytes;
+    }
+	
+	public static String decodeText(byte[] bytes)
+    {
+		String message = null;
+        try {
+        	message = new String(bytes, "UTF-8");
+        } catch (Exception e) {
+            message = null;
+        }
+        return message;
+    }
+
+	public static Bitmap encodeBinary(byte[] bytes)
+    {
+        Bitmap bmp = null;
+        try {
+        	int sqrt = (int)Math.ceil(Math.sqrt(bytes.length));
+        	 bmp = Bitmap.createBitmap(sqrt, sqrt, Bitmap.Config.ARGB_8888);
+        	 for (int w = 0, index = 0; w < sqrt; w++) {
+                for (int h = 0; h < sqrt; h++) {
+                    if (index < bytes.length) {
+                        int A = (int)bytes[index];
+                        int color = Color.argb(A, 0, 0, 0);
+                        bmp.setPixel(w, h, color);
+                    }
+                    else {
+                    	int color = Color.argb(0, 255, 255, 255);
+                        bmp.setPixel(w, h, color);
+                    }
+                    index++;
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            bmp = null;
+        }
+        return bmp;
+    }
+
+	public static byte[] decodeBinary(Bitmap bmp)
+    {
+        byte[] bytes = null;
+        try
+        {
+            int wSize = bmp.getWidth(), hSize = bmp.getHeight();
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            for (int w = 0; w < wSize; w++) {
+                for (int h = 0; h < hSize; h++) {
+                    int color = bmp.getPixel(w, h);
+                    if (Color.red(color) == 0 && Color.green(color) == 0 && Color.blue(color) == 0) stream.WriteByte(color.A);
+                    else break;
+                }
+            }
+            bytes = stream.toByteArray();
+            stream = null;
+        }
+        catch (Exception e)
+        {
+            bytes = null;
+        }
+        return bytes;
+    }
+	
+}
